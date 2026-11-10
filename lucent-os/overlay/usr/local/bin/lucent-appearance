@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# lucent-appearance light|dark
+# Switches apps, GNOME Shell and icons together (GNOME's own toggle only covers some apps).
+set -euo pipefail
+
+case "${1:-}" in
+  dark)  scheme=prefer-dark; gtk=WhiteSur-Dark;  icons=WhiteSur-dark;  shell=WhiteSur-Dark ;;
+  light) scheme=default;     gtk=WhiteSur-Light; icons=WhiteSur-light; shell=WhiteSur-Light ;;
+  *) echo "usage: lucent-appearance light|dark" >&2; exit 2 ;;
+esac
+
+gsettings set org.gnome.desktop.interface color-scheme "$scheme"
+gsettings set org.gnome.desktop.interface gtk-theme "$gtk"
+gsettings set org.gnome.desktop.interface icon-theme "$icons"
+gsettings set org.gnome.shell.extensions.user-theme name "$shell" 2>/dev/null || true

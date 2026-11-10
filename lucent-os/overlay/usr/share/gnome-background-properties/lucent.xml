@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>Lucent Glass</name>
+    <filename>/usr/share/backgrounds/lucent/lucent-light.jpg</filename>
+    <filename-dark>/usr/share/backgrounds/lucent/lucent-dark.jpg</filename-dark>
+    <options>zoom</options>
+    <pcolor>#1b1f3a</pcolor>
+    <scolor>#1b1f3a</scolor>
+    <shade_type>solid</shade_type>
+  </wallpaper>
+</wallpapers>

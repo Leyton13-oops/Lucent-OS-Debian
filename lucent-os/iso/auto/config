@@ -1,0 +1,26 @@
+#!/bin/sh
+# live-build configuration. `lb config` runs this file from the build directory.
+set -e
+
+# shellcheck source=/dev/null
+. ./os.conf
+
+lb config noauto \
+    --distribution trixie \
+    --architecture amd64 \
+    --archive-areas "main contrib non-free non-free-firmware" \
+    --binary-image iso-hybrid \
+    --bootloaders "grub-efi,syslinux" \
+    --debian-installer none \
+    --linux-flavours amd64 \
+    --security true \
+    --updates true \
+    --backports false \
+    --firmware-chroot true \
+    --firmware-binary true \
+    --iso-application "$OS_NAME" \
+    --iso-publisher "$OS_NAME" \
+    --iso-volume "$ISO_VOLUME" \
+    --image-name "$ISO_NAME" \
+    --bootappend-live "boot=live components quiet splash locales=en_US.UTF-8 keyboard-layouts=us username=$LIVE_USER hostname=$LIVE_USER" \
+    "${@}"

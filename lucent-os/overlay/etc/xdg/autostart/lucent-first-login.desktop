@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Lucent first login
+Exec=lucent-apply-look --once
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

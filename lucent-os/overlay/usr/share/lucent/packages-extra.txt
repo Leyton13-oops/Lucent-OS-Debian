@@ -1,0 +1,19 @@
+# Nice-to-have packages. Installed one by one; anything unavailable is skipped, never fatal.
+qt6-wayland
+gnome-shell-extension-appindicator
+fonts-inter
+gtk2-engines-murrine
+gnome-tweaks
+gnome-system-monitor
+gnome-disk-utility
+gnome-weather
+gnome-clocks
+gnome-calendar
+gnome-maps
+file-roller
+vlc
+ffmpeg
+cabextract
+p7zip-full
+unzip
+zenity

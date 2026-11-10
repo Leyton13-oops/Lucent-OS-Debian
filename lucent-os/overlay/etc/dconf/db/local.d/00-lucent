@@ -1,0 +1,76 @@
+# Lucent OS system defaults for GNOME. Compiled by `dconf update`.
+# Per-user changes always win over this file.
+
+[org/gnome/desktop/interface]
+color-scheme='prefer-dark'
+accent-color='blue'
+gtk-theme='WhiteSur-Dark'
+icon-theme='WhiteSur-dark'
+font-name='Inter 11'
+document-font-name='Inter 11'
+clock-show-date=true
+clock-show-weekday=true
+show-battery-percentage=true
+enable-hot-corners=false
+
+[org/gnome/desktop/wm/preferences]
+button-layout='close,minimize,maximize:'
+titlebar-font='Inter Bold 11'
+
+[org/gnome/desktop/background]
+picture-uri='file:///usr/share/backgrounds/lucent/lucent-light.jpg'
+picture-uri-dark='file:///usr/share/backgrounds/lucent/lucent-dark.jpg'
+picture-options='zoom'
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///usr/share/backgrounds/lucent/lucent-dark.jpg'
+picture-options='zoom'
+
+[org/gnome/desktop/peripherals/touchpad]
+tap-to-click=true
+natural-scroll=true
+
+[org/gnome/mutter]
+edge-tiling=true
+dynamic-workspaces=true
+
+[org/gnome/shell]
+disable-user-extensions=false
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'blur-my-shell@aunetx', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com']
+favorite-apps=['org.gnome.Nautilus.desktop', 'firefox-esr.desktop', 'lucent-intelligence.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Console.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Software.desktop', 'org.gnome.Settings.desktop', 'install-debian.desktop']
+welcome-dialog-last-shown-version='999'
+
+[org/gnome/shell/extensions/user-theme]
+name='WhiteSur-Dark'
+
+[org/gnome/shell/extensions/dash-to-dock]
+dock-position='BOTTOM'
+dock-fixed=false
+extend-height=false
+intellihide=true
+dash-max-icon-size=52
+transparency-mode='FIXED'
+custom-background-color=true
+background-color='#ffffff'
+background-opacity=0.12
+running-indicator-style='DOTS'
+click-action='minimize-or-previews'
+show-trash=true
+show-mounts=false
+show-apps-at-top=true
+apply-custom-theme=false
+disable-overview-on-startup=true
+
+[org/gnome/shell/extensions/blur-my-shell/applications]
+blur=true
+opacity=225
+dynamic-opacity=true
+whitelist=['org.gnome.Nautilus', 'org.gnome.Console', 'org.gnome.Terminal', 'org.gnome.TextEditor', 'lucent-intelligence']
+
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/lucent-ai/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/lucent-ai]
+name='Lucent Intelligence'
+command='lucent-intelligence'
+binding='<Super>i'

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# Install Ollama and a local model, then point Lucent Intelligence at it.
+#   lucent-ai-setup [model]      default model: gemma3:4b (or $LUCENT_MODEL)
+set -euo pipefail
+
+MODEL="${1:-${LUCENT_MODEL:-gemma3:4b}}"
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/lucent/intelligence.json"
+
+echo "== Lucent local AI setup =="
+echo "This installs Ollama (from ollama.com) and downloads the model '$MODEL' (several GB)."
+echo "Everything then runs on this computer, with no account needed."
+read -rp "Continue? [Y/n] " ans || true
+if [[ "${ans:-y}" =~ ^[Nn] ]]; then exit 0; fi
+
+if ! command -v ollama >/dev/null 2>&1; then
+  curl -fsSL https://ollama.com/install.sh | sh
+fi
+ollama pull "$MODEL"
+
+mkdir -p "$(dirname "$CONFIG")"
+python3 - "$CONFIG" "$MODEL" <<'PY'
+import json
+import sys
+
+path, model = sys.argv[1:3]
+try:
+    with open(path, encoding="utf-8") as f:
+        cfg = json.load(f)
+except (OSError, ValueError):
+    cfg = {}
+cfg.update({"base_url": "http://localhost:11434/v1", "model": model})
+cfg.setdefault("api_key", "")
+with open(path, "w", encoding="utf-8") as f:
+    json.dump(cfg, f, indent=2)
+PY
+
+echo
+echo "Done. Press Super+I to talk to Lucent Intelligence."
+read -rp "Press Enter to close. " _ || true

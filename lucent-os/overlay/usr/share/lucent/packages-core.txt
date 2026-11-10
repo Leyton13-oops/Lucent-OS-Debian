@@ -1,0 +1,16 @@
+# Required packages (Debian 13 "trixie"). Every name here must exist or the ISO build fails.
+sudo
+dconf-cli
+gnome-shell-extensions
+gnome-shell-extension-blur-my-shell
+gnome-shell-extension-dashtodock
+wine
+winetricks
+flatpak
+gnome-software-plugin-flatpak
+python3-pyqt6
+git
+curl
+ca-certificates
+sassc
+libglib2.0-dev-bin

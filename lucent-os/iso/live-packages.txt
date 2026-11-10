@@ -1,0 +1,14 @@
+# ISO-only packages: the GNOME live session, the installer, and hardware firmware.
+# Shared packages come from overlay/usr/share/lucent/packages-core.txt.
+task-gnome-desktop
+live-task-gnome
+locales
+calamares-settings-debian
+firmware-linux
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-misc-nonfree
+firmware-amd-graphics
+intel-microcode
+amd64-microcode

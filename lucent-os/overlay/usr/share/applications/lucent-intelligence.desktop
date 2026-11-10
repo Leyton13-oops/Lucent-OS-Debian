@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Lucent Intelligence
+GenericName=AI Assistant
+Comment=Ask, summarize and control your computer (Super+I)
+Exec=lucent-intelligence
+Icon=lucent-intelligence
+Terminal=false
+Categories=Utility;
+Keywords=ai;assistant;chat;gemini;
+StartupWMClass=lucent-intelligence

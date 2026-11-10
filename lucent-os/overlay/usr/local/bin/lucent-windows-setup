@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Set up friendly Windows app support: Bottles (Wine manager) and, optionally, Steam (Proton).
+#   lucent-windows-setup [--steam]
+# Wine itself is already installed: double-click a .exe to try it.
+set -euo pipefail
+
+want_steam=0
+[[ "${1:-}" == "--steam" ]] && want_steam=1
+
+echo "== Lucent Windows app support =="
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install --user -y flathub com.usebottles.bottles
+
+if [[ $want_steam -eq 0 ]]; then
+  read -rp "Also install Steam (uses Proton to run Windows games)? [y/N] " ans || true
+  [[ "${ans:-n}" =~ ^[Yy] ]] && want_steam=1
+fi
+if [[ $want_steam -eq 1 ]]; then
+  flatpak install --user -y flathub com.valvesoftware.Steam
+fi
+
+cat <<'TXT'
+
+Done. How to run Windows programs:
+  * Simple installers and portable apps: double-click the .exe (opens with Wine).
+  * Anything fussy: open Bottles, create a bottle, then "Run executable".
+  * Games: use Steam (Proton) or add a game to a Bottles "Gaming" bottle.
+
+Some software will not run: anything that needs a Windows kernel driver, many
+anti-cheat games, and apps like Adobe Creative Cloud. Check WineHQ AppDB or
+ProtonDB for your program before relying on it.
+TXT
+read -rp "Press Enter to close. " _ || true

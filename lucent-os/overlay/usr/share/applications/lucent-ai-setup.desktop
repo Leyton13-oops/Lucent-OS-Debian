@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Set up local AI
+Comment=Install Ollama and a local model for Lucent Intelligence
+Exec=lucent-ai-setup
+Icon=lucent-intelligence
+Terminal=true
+Categories=Utility;System;

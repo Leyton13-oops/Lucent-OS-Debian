@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Load Lucent's desktop defaults into the current user's settings.
+#
+#   lucent-apply-look          apply now (overwrites the settings Lucent manages)
+#   lucent-apply-look --once   apply once per user, only after install-on-debian.sh
+#
+# New users on the ISO get these defaults automatically; this is for existing accounts.
+set -euo pipefail
+
+FLAG="${XDG_CONFIG_HOME:-$HOME/.config}/lucent/.look-applied"
+MARK=/usr/share/lucent/.apply-on-first-login
+
+if [[ ${1:-} == --once ]]; then
+  [[ -f $MARK && ! -f $FLAG ]] || exit 0
+fi
+
+dconf load / < /etc/dconf/db/local.d/00-lucent
+mkdir -p "$(dirname "$FLAG")"
+touch "$FLAG"
+echo "Lucent look applied. Log out and back in to activate the shell extensions."

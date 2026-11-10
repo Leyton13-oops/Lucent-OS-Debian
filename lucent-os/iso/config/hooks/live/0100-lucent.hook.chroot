@@ -1,0 +1,6 @@
+#!/bin/sh
+# Runs inside the ISO's chroot after all packages are installed.
+set -e
+
+chmod 0755 /usr/local/bin/lucent-* /usr/share/lucent/setup.sh
+bash /usr/share/lucent/setup.sh --chroot

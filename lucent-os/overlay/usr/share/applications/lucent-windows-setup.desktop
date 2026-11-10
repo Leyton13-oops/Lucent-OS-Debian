@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Set up Windows apps
+Comment=Install Bottles (and optionally Steam) to run Windows programs
+Exec=lucent-windows-setup
+Icon=application-x-executable
+Terminal=true
+Categories=System;Utility;
